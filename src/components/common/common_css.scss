@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+// 自动适配手机
+@function toREM($px) {
+    @return $px/100 * 1rem;
+}
+
+$uiwidth: 375;
+html {
+    font-size: (100 / $uiwidth) * 100vw;
+    @media screen and (max-width: 320px) {
+        font-size: 80px;
+    }
+    @media screen and (min-width: 750px) {
+        font-size: 120px;
+    }
+}
+
+@mixin img {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-size: toREM(16);
+    max-width: 750px;
+    min-width: 320px;
+    margin: 0 auto !important;
+}

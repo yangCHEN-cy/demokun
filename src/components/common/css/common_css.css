@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+html {
+  font-size: 26.66667vw;
+}
+
+@media screen and (max-width: 320px) {
+  html {
+    font-size: 80px;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  html {
+    font-size: 120px;
+  }
+}
+
+body {
+  font-size: 0.16rem;
+  max-width: 750px;
+  min-width: 320px;
+  margin: 0 auto !important;
+}
