@@ -14,46 +14,123 @@
     <div class="hotelsearchbox">
       <van-tabs id="vantabs">
         <van-tab title="国内">
-          <div class="inputbox" v-for="(item,index) in adress" :key="index">
+          <div class="inputbox">
             <i class="icon search"></i>
-          <input type="text" name="" :value="item.shangh" id="input">
+            <input type="text" name="" v-model="val" id="input" />
             <i class="icon dinwei"></i>
-           
           </div>
-          <div class=" datebox">
+          <div class="datebox">
+            <van-cell title="选择日期区间" :value="date" @click="show = true" />
+            <van-calendar v-model="show" type="range" @confirm="onConfirm" />
+          </div>
+          <div class="datebox">
+            <input type="text" value="试试搜索“故宫" name="" id="" />
+          </div>
+          <div class="searchbox">
+            <van-button
+              class="searchbtn"
+              color="linear-gradient(to right, #339882, #268ec0)"
+              style="font-weight: bold"
+              to="/hotellist"
+              @click="sendlist()"
+            >
+              开始搜索
+            </van-button>
           </div>
         </van-tab>
-        <van-tab title="国际" id="border" ></van-tab>
+        <van-tab title="国际" id="border"></van-tab>
         <van-tab title="民宿"></van-tab>
       </van-tabs>
     </div>
+    <van-tabbar v-model="active">
+      <van-tabbar-item badge="">
+        <span>订单·取消更改</span>
+        <template #icon="props">
+          <img :src="props.active ? icon.active : icon.inactive" />
+        </template>
+      </van-tabbar-item>
+      <van-tabbar-item badge="">
+        <span>我的收藏</span>
+        <template #icon="props">
+          <img :src="props.active ? icon.active : icon.inactive" />
+        </template>
+      </van-tabbar-item>
+    </van-tabbar>
   </div>
 </template>
 
 <script>
-import { mapState, mapMutations, mapGetters } from "vuex"; 
+import { mapState, mapMutations, mapGetters } from "vuex";
+
 export default {
-  mounted() {
- 
-  },
+  mounted() {},
   data() {
     return {
-    }
+      date: "",
+      show: false,
+      val: "北京",
+      active: 0,
+      icon: {
+        active: ["https://img01.yzcdn.cn/vant/user-inactive.png"],
+        inactive: ["https://scpic.chinaz.net/Files/pic/icons128/6761/g4.png"],
+      },
+    };
   },
   methods: {
-    
+    formatDate(date) {
+      return `${date.getMonth() + 1}/${date.getDate()}`;
+    },
+    onConfirm(date) {
+      const [start, end] = date;
+      this.show = false;
+      this.date = `${this.formatDate(start)} - ${this.formatDate(end)}`;
+    },
+    sendlist() {
+    //   console.log(this.$store.state.hotel.adress.data[0].name);
+      console.log(this.val);
+      let bei = this.$store.state.hotel.adress.data[0].name;
+      let shang = this.$store.state.hotel.adress.data[1].name;
+      let an = this.$store.state.hotel.adress.data[2].name;
+      if (this.val == bei) {
+        this.$axios.get("../../static/data/hotellist.json").then((res) => {
+          console.log(res);
+            let beij = res.data.beij;
+            this.list[0] = beij;
+            console.log(this.list[0]);
+            return;
+        });
+      } else if (this.val == shang) {
+        this.$axios.get("../../static/data/hotellist.json").then((res) => {
+          console.log(res);
+            let shangh = res.data.shangh;
+            this.list[0] = shangh;
+            console.log(this.list[0]);
+            return;
+        });
+      } else if (this.val == an) {
+        this.$axios.get("../../static/data/hotellist.json").then((res) => {
+          console.log(res);
+            let anhui = res.data.anhui;
+            this.list[0] = anhui;
+            console.log(this.list[0]);
+            return;
+        });
+      } else {
+        alert("请搜索北京，上海，安徽");
+      }
+    },
   },
-  computed:{
-    ...mapState(["adress"]),
-
-  }
+  watch: {},
+  computed: {
+    ...mapState(["hotel", "list"]),
+  },
 };
 </script>
 
 <style scoped lang='scss'>
+@import "../../components/common/import.scss";
 #app .hotelbox {
   position: relative;
-  
 }
 #app .hotelbox > #hotel {
   position: relative;
@@ -66,24 +143,24 @@ export default {
     position: absolute;
 
     display: inline-block;
-    width: 15px;
-    height: 25px;
+    width: toREM(15);
+    height: toREM(25);
     z-index: 1;
-    top: 1rem;
+    top: toREM(25);
   }
   .back {
-    left: 1rem;
+    left: toREM(15);
     background: url(../../assets/images/hotelsearch/back.png) no-repeat;
   }
   .total {
     width: 30px;
     background: url(../../assets/images/hotelsearch/total.png) no-repeat;
-    right: 3rem;
+    right: toREM(55);
   }
   .hanbao {
     width: 30px;
     background: url(../../assets/images/hotelsearch/hanbao.png) no-repeat;
-    right: 0.5rem;
+    right: toREM(10);
   }
 }
 
@@ -91,40 +168,55 @@ export default {
   position: absolute;
   top: 25%;
   left: 2%;
-  width: 96%;
+  width: 90%;
   margin: 0 auto;
-  padding-top: .4rem;
-  height: 15rem;
-  border-radius: 0.6rem;
+  padding: toREM(10);
+  height: toREM(230);
+  border-radius: toREM(15);
   background: #fff;
   z-index: 2;
- 
-
 }
 
-#input{
+#input {
   border: none;
-  margin:0 1rem;
-  width: 92%;
-  height: 2.5rem;
-  text-indent: 2rem;
+  margin: 0 toREM(2);
+  width: 100%;
+  height: toREM(40);
+  text-indent: toREM(50);
   font-weight: bold;
   border-bottom: 2px solid #ccc;
 }
-.icon{
+.icon {
   position: absolute;
-  top: 3.3rem;
+  top: toREM(55);
   display: inline-block;
-  width: 20px;
-  height: 20px;
+  width: toREM(20);
+  height: toREM(20);
 }
-.search{
-  left: 1rem;
+.search {
+  left: toREM(20);
   background: url(../../assets/images/hotelsearch/icon-search.png) no-repeat;
 }
-.dinwei{
-  right: 1.5rem;
+.dinwei {
+  right: toREM(40);
   background: url(../../assets/images/hotelsearch/dinwei.png) no-repeat;
-
+}
+.datebox {
+  padding: 0 toREM(10);
+  border-bottom: 2px solid #ccc;
+  input {
+    height: toREM(40);
+    line-height: toREM(30);
+    border: none;
+    color: #ccc;
+  }
+}
+.searchbox {
+  .searchbtn {
+    width: 100%;
+    margin: toREM(18) toREM(2);
+    border-radius: toREM(20);
+    height: toREM(30);
+  }
 }
 </style>
