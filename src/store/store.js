@@ -3,7 +3,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 Vue.use(Vuex)
 const store = new Vuex.Store({
-    state:{
+    state: {
         tour:{
             address:[
                 {
@@ -72,16 +72,38 @@ const store = new Vuex.Store({
                 }
             ]
         },
-        islogin:false,
-        currplace:'安徽'
+        hotel: {
+            adress: {
+                data: [
+                    {
+                        name: "北京",
+                    },
+                    {
+                        name: "上海",
+                    },
+                    {
+                        name: "安徽",
+                    },
+                ]
+
+            },
+        },
+        list: [],
+        islogin: false,
+        valhotellist: "请输入酒店名/关键词",
+        valxingadd: "搜索国家/城市，北京/上海",
+        valhome: "游记，团购",
+        valhomec: "上海 厦门",
     },
+
     mutations:{
-        checklogin(){
-            
+        checklogin(state,blo){
+            state.islogin = blo
+            console.log(state.islogin);
         }
     },
-    getters:{
+    getters: {
 
     }
 })
-export {store}
+export { store }
