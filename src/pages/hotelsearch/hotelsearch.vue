@@ -7,7 +7,7 @@
         src="../../assets/images/hotelsearch/banner.png"
         alt=""
       />
-      <i class="icon back"></i>
+      <i class="icon back" @click="back()"></i>
       <i class="icon total"></i>
       <i class="icon hanbao"></i>
     </div>
@@ -31,7 +31,6 @@
               class="searchbtn"
               color="linear-gradient(to right, #339882, #268ec0)"
               style="font-weight: bold"
-              to="/hotellist"
               @click="sendlist()"
             >
               开始搜索
@@ -63,7 +62,9 @@
 import { mapState, mapMutations, mapGetters } from "vuex";
 
 export default {
-  mounted() {},
+  mounted() {
+    //  this.sendlist()
+  },
   data() {
     return {
       date: "",
@@ -76,6 +77,7 @@ export default {
       },
     };
   },
+  computed: {},
   methods: {
     formatDate(date) {
       return `${date.getMonth() + 1}/${date.getDate()}`;
@@ -85,6 +87,10 @@ export default {
       this.show = false;
       this.date = `${this.formatDate(start)} - ${this.formatDate(end)}`;
     },
+    back() {
+      this.$router.push("/homepage");
+    },
+    //获取json数据
     sendlist() {
     //   console.log(this.$store.state.hotel.adress.data[0].name);
       console.log(this.val);
@@ -97,6 +103,9 @@ export default {
             let beij = res.data.beij;
             this.list[0] = beij;
             console.log(this.list[0]);
+            this.$router.push({name:'hotellist',parmas:{
+              beij:id
+            }})
             return;
         });
       } else if (this.val == shang) {
@@ -105,6 +114,9 @@ export default {
             let shangh = res.data.shangh;
             this.list[0] = shangh;
             console.log(this.list[0]);
+            this.$router.push({name:'hotellist',parmas:{
+              shangh:id
+            }})
             return;
         });
       } else if (this.val == an) {
@@ -113,12 +125,18 @@ export default {
             let anhui = res.data.anhui;
             this.list[0] = anhui;
             console.log(this.list[0]);
+            this.$router.push({name:'hotellist',parmas:{
+              anhui:id
+            }})
             return;
         });
       } else {
         alert("请搜索北京，上海，安徽");
       }
+
     },
+
+ 
   },
   watch: {},
   computed: {
