@@ -66,7 +66,13 @@ let router = new Router({
     {
       path: '/my',
       name: 'my',//我的页面
-      component: () => import('../pages/my/my')
+      component: () => import('../pages/my/my'),
+      children:[
+        {path:'',component:()=>import("@/pages/my/myyj")},
+        {path:'myyj',component:()=>import("@/pages/my/myyj")},
+        {path:'mysp',component:()=>import("@/pages/my/mysp")},
+        {path:'mywd',component:()=>import("@/pages/my/mywd")},
+      ]
     },
     {
       path: '/journeylist',
