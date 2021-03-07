@@ -53,11 +53,12 @@
       <div class="bon">
           <img src="../../assets/images/my/dingwei.png" alt="">
           <a href="#" class="mya1">打开定位解锁游趣更多功能</a>
-          <a href="#" class="mya2">13132131</a>
+          <a href="#" class="mya2">立即打开></a>
       </div>
       <router-view></router-view>
       </div>
     </div>
+    
   </div>
 </template>
 
@@ -71,7 +72,7 @@
 export default {
 data(){
     return{
-      currIndex:1
+      currIndex:0
     }
   }
 }
@@ -214,17 +215,19 @@ a{
     width: 100%;
     height:toREM(20);
     float: left;
-    background-color: #fff;
+    background-color: #E0E0E0;
     // background-color: #000000;
     img{
         height:toREM(10) ;
     }
     .mya1{
         font-size:toREM(10) ;
+        color: #626262;
     }
     .mya2{
         font-size:toREM(10) ;
         float: right;
+        color: #2798D6;
     }
 }
 }

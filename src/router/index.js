@@ -7,7 +7,7 @@ let router = new Router({
     {
       path: '/',
       name: 'home',//首页
-<<<<<<< HEAD
+// <<<<<<< HEAD
       component: ()=> import('../pages/homepage/homepage'),children:[
         { path: '/remen',
          component: ()=> import('../pages/homepage/remen.vue')},
@@ -24,8 +24,8 @@ let router = new Router({
       name: 'home',//首页
       component: ()=> import('../pages/homepage/homepage'),children:[
         { path: '/remen', component: ()=> import('../pages/homepage/remen')}
-      ]
-=======
+      ],
+// =======
       component: () => import('../pages/homepage/homepage'), children: [
         {
           path: '/remen',
@@ -41,7 +41,7 @@ let router = new Router({
       path: '/homepage',
       name: 'homepage',//首页
       component: () => import('../pages/homepage/homepage')
->>>>>>> 8e8f5a02b9fcab34294ecbffc777336347c4b8d3
+// >>>>>>> 8e8f5a02b9fcab34294ecbffc777336347c4b8d3
     },
     {
       path: '/login',

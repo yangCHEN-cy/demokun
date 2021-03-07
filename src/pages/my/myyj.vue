@@ -9,6 +9,7 @@
 </div> -->
       <ul>
         <li>
+            <img src="" alt="">
           <van-swipe @change="onChange">
             <van-swipe-item><img src="../../assets/images/my/lbu1.png"></van-swipe-item>
             <van-swipe-item>2</van-swipe-item>
@@ -48,6 +49,6 @@ export default {
 .box {
   // margin-top: 20px;
   height: toREM(500);
-  background-color: aqua;
+  background-color: white;
 }
 </style>
