@@ -3,6 +3,7 @@
     <homeswiper></homeswiper>
     <topqiehuan></topqiehuan>
     <banner></banner>
+    <!-- <myfooter></myfooter> -->
   </div>
 </template>
 
@@ -10,11 +11,13 @@
 import homeswiper from "../homepage/swiper.vue";
 import topqiehuan from "../homepage/topqiehuan.vue";
 import banner from "./banner.vue";
+import myfooter from '../../components/footer/tabbar'
 export default {
   components: {
     homeswiper,
     topqiehuan,
     banner,
+    myfooter
   },
 };
 </script>

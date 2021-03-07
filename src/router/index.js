@@ -11,12 +11,16 @@ export default new Router({
         { path: '/remen',
          component: ()=> import('../pages/homepage/remen.vue')},
          { path: '/',
-         component: ()=> import('../pages/homepage/remen.vue')}
+         component: ()=> import('../pages/homepage/remen.vue')},
+         { path: '/ziyou',
+         component: ()=> import('../pages/homepage/ziyou.vue')},
+         { path: '/mingsu',
+         component: ()=> import('../pages/homepage/mingsu.vue')}
       ]
     },
     {
-      path: '/homepage',
-      name: 'homepage',//首页
+      path: '/home',
+      name: 'home',//首页
       component: ()=> import('../pages/homepage/homepage'),children:[
         { path: '/remen', component: ()=> import('../pages/homepage/remen')}
       ]
