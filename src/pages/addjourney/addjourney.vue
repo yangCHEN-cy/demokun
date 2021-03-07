@@ -1,5 +1,4 @@
 <template>
-<<<<<<< HEAD
   <div class="box">
     <headernormal mytitle="添加行程"></headernormal>
     <div class="numb">
@@ -59,19 +58,10 @@
       </div>
       <establish></establish>
     </div>
-=======
-  <div>
-      <div>
-          0
-          <router-link to="journeyinfor">home</router-link>
-          <button @click="fn()">跳转</button>
-      </div>
->>>>>>> 0225e6cf57e5900a5d1937068e82ad0442d0b8dc
   </div>
 </template>
 
 <script>
-<<<<<<< HEAD
 import hotcity from "./hotcity";
 import establish from "./establish";
 import cityadd from "./cityadd";
@@ -84,16 +74,26 @@ export default {
     headernormal,
     cityadd,
   },
-};
-=======
-export default {
-methods:{
+  methods:{
     fn(){
         this.$router.push({name:'journeyinfor',params:{aaa:'111'}})
     }
-}
-}
->>>>>>> 0225e6cf57e5900a5d1937068e82ad0442d0b8dc
+  },
+  beforeRouteEnter (to, from, next) {
+    console.log("sdad")
+    // 获取本地存储中是否有用户名或密码 或token
+    let uname =window.sessionStorage.getItem("userName");
+    // let upwd =window.sessionStorage.getItem("mPwd");
+    console.log(uname)
+    if(uname){
+      console.log("已经登录了");
+      next();
+    }else{
+       console.log("未登录");
+       next({path:'/login'});
+    }
+  }
+};
 </script>
 
 <style scoped lang='scss'>

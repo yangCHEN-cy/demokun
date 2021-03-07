@@ -20,15 +20,15 @@
 </template>
 
 <script>
-import boring from './boring'
-import guess from './guess'
-import headernormal from '../../components/header/header-normal'
-export default {
-    components:{
-        boring,
-        guess,
-        headernormal
-    },
+import boring from './boring'
+import guess from './guess'
+import headernormal from '../../components/header/header-normal'
+export default {
+    components:{
+        boring,
+        guess,
+        headernormal
+    },
 }
 </script>
 
