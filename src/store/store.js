@@ -52,9 +52,11 @@ const store = new Vuex.Store({
         valhome: "游记，团购",
         valhomec: "上海 厦门",
     },
-    mutations: {
-        checklogin() {
 
+    mutations:{
+        checklogin(state,blo){
+            state.islogin = blo
+            console.log(state.islogin);
         }
     },
     getters: {
