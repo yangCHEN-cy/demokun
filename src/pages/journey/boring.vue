@@ -6,123 +6,52 @@
       </div>
       <div class="parentchild">
         <ul>
-          <li>
+          <li v-for="(item, index) in data" :key="index">
             <div class="parent_you">
-              <img src="../../assets/images/journey/top253581.png" alt="" />
+              <img :src="require('../../assets/images/journey/' + item.img)" alt="" />
             </div>
             <div class="parent_info">
-              <div class="parent_h1">亲子好去处</div>
-              <div class="parent_tips"><img src="../../assets/images/journey/20210303220706.png" alt=""> 带娃去嗨 </div>
+              <div class="parent_h1">{{item.name}}</div>
+              <div class="parent_tips">
+                <img :src="require('../../assets/images/journey/' + item.imgg)" alt=""> 
+                {{item.nameh}} 
+              </div>
             </div>
             <div class="parent_top">
-              <p class="top1">TOP</p>
-              <p class="top2">1</p>
-            </div>
-          </li>
-          <li>
-            <div class="parent_you">
-              <img src="../../assets/images/journey/top253583.png" alt="" />
-            </div>
-            <div class="parent_info">
-              <div class="parent_h1">秋日旅行地</div>
-              <div class="parent_tips"><img src="../../assets/images/journey/20210303220706.png" alt=""> 赏人间秋色</div>
-            </div>
-            <div class="parent_top">
-              <p class="top1">TOP</p>
-              <p class="top2">2</p>
-            </div>
-          </li>
-          <li>
-            <div class="parent_you">
-              <img src="../../assets/images/journey/top253582.png" alt="" />
-            </div>
-            <div class="parent_info">
-              <div class="parent_h1">小众目的地</div>
-              <div class="parent_tips"><img src="../../assets/images/journey/20210303220706.png" alt=""> 拒绝人满为患</div>
-            </div>
-            <div class="parent_top">
-              <p class="top1">TOP</p>
-              <p class="top2">3</p>
+              <p class="top1">{{item.top}}</p>
+              <p class="top2">{{item.num}}</p>
             </div>
           </li>
         </ul>
       </div>
       <div class="sandbeach">
         <ul>
-          <li>
+          <li v-for="(item, index) in nav" :key="index">
             <div class="beach_you">
-              <img src="../../assets/images/journey/top253584.png" alt="" />
+              <img :src="require('../../assets/images/journey/' + item.img)" alt="" />
             </div>
             <div class="beach_info">
-              <div class="beach_h1">最美沙滩榜</div>
-              <div class="beach_tips">让浪花亲吻脚丫</div>
+              <div class="beach_h1">{{item.name}}</div>
+              <div class="beach_tips">{{item.nameh}}</div>
             </div>
             <div class="beach_top">
-              <p class="top1">4</p>
-            </div>
-          </li>
-          <li>
-            <div class="beach_you">
-              <img src="../../assets/images/journey/top253584.png" alt="" />
-            </div>
-            <div class="beach_info">
-              <div class="beach_h1">100元嗨一天</div>
-              <div class="beach_tips">超省钱的玩法</div>
-            </div>
-            <div class="beach_top">
-              <p class="top1">5</p>
-            </div>
-          </li>
-          <li>
-            <div class="beach_you">
-              <img src="../../assets/images/journey/top253584.png" alt="" />
-            </div>
-            <div class="beach_info">
-              <div class="beach_h1">粉红打卡地</div>
-              <div class="beach_tips">满足你的少女心</div>
-            </div>
-            <div class="beach_top">
-              <p class="top1">6</p>
+              <p class="top1">{{item.num}}</p>
             </div>
           </li>
         </ul>
       </div>
       <div class="sandbeach">
         <ul>
-          <li>
+          <li v-for="(item, index) in nav1" :key="index">
             <div class="beach_you">
-              <img src="../../assets/images/journey/top253585.png" alt="" />
+              <img :src="require('../../assets/images/journey/' + item.img)" alt="" />
             </div>
             <div class="beach_info">
-              <div class="beach_h1">热气球目的地</div>
-              <div class="beach_tips">体验特色飞行</div>
+              <div class="beach_h1">{{item.name}}</div>
+              <div class="beach_tips">{{item.nameh}}</div>
             </div>
             <div class="beach_top">
-              <p class="top1">7</p>
-            </div>
-          </li>
-          <li>
-            <div class="beach_you">
-              <img src="../../assets/images/journey/top253585.png" alt="" />
-            </div>
-            <div class="beach_info">
-              <div class="beach_h1">特色客栈</div>
-              <div class="beach_tips">刷爆朋友圈</div>
-            </div>
-            <div class="beach_top">
-              <p class="top1">8</p>
-            </div>
-          </li>
-          <li>
-            <div class="beach_you">
-              <img src="../../assets/images/journey/top253585.png" alt="" />
-            </div>
-            <div class="beach_info">
-              <div class="beach_h1">蜜月出国地</div>
-              <div class="beach_tips">全球浪漫胜地</div>
-            </div>
-            <div class="beach_top">
-              <p class="top1">9</p>
+              <p class="top1">{{item.num}}</p>
             </div>
           </li>
         </ul>
@@ -132,29 +61,101 @@
 </template>
 
 <script>
-export default {};
+export default {
+    data() {
+    return {
+      data: [
+        { 
+          img: "top253581.png",
+          imgg: "20210303220706.png",
+          name: "亲子好去处",
+          nameh: "带娃去嗨",
+          top: "TOP",
+          num: "1"
+        },
+        { 
+          img: "top253583.png",
+          imgg: "20210303220706.png",
+          name: "秋日旅行地",
+          nameh: "赏人间秋色",
+          top: "TOP",
+          num: "2"
+        },
+        { 
+          img: "top253582.png",
+          imgg: "20210303220706.png",
+          name: "小众目的地",
+          nameh: "拒绝人满为患",
+          top: "TOP",
+          num: "3"
+        },
+      ],
+      nav: [
+         { 
+          img: "top253584.png",
+          name: "最美沙滩榜",
+          nameh: "让浪花亲吻脚丫",
+          num: "4"
+        },
+        { 
+          img: "top253584.png",
+          name: "100元嗨一天",
+          nameh: "超省钱的玩法",
+          num: "5"
+        },
+        { 
+          img: "top253584.png",
+          name: "粉红打卡地",
+          nameh: "满足你的少女心",
+          num: "6"
+        },
+      ],
+      nav1: [
+         { 
+          img: "top253585.png",
+          name: "热气球目的地",
+          nameh: "体验特色飞行",
+          num: "7"
+        },
+        { 
+          img: "top253585.png",
+          name: "特色客栈",
+          nameh: "刷爆朋友圈",
+          num: "8"
+        },
+        { 
+          img: "top253585.png",
+          name: "蜜月出国地",
+          nameh: "全球浪漫胜地",
+          num: "9"
+        },
+      ]
+    };
+  },
+};
 </script>
 
-<style scoped lang='less'>
+<style scoped lang='scss'>
+@import '../../components/common/import.scss';
 .box {
-  margin-top: 10px;
-  height: 290px;
-  border-radius: 10px;
+  margin-top: toREM(10);
+  height: toREM(290);
+  border-radius: toREM(10);
   border: 1px solid #fff;
   background: #fff;
   .box-qu {
-    line-height: 40px;
+    line-height: toREM(40);
     .stand {
-      margin-right: 180px;
+      margin-left: toREM(10);
     }
     .more {
-      margin-left: 40px;
+      margin-left: toREM(230);
       font-size: 12px;
     }
   }
   .parentchild {
     width: 100%;
-    margin-top: -15px;
+    margin-top: toREM(-5);
     ul{
         width: 100%;
         padding: 0px 5px;
@@ -163,11 +164,11 @@ export default {};
       width: 27%;
       float: left;
       list-style: none;
-      margin-right: 20px;
+      margin-right: toREM(20);
       position: relative;
       .parent_you{
           img{
-            width: 118px;
+            width: toREM(118);
           }
       }
       .parent_info {
@@ -176,38 +177,41 @@ export default {};
         left: 0;
         z-index: 50;
         color: #fff;
-        margin-top: 65px;
-        width: 118px;
+        margin-top: toREM(60);
+        width: toREM(118);
         .parent_h1 {
           font-size: 14px;
-          margin-left: -30px;
+          margin-left: toREM(10);
         }
         .parent_tips {
           font-size: 12px;
-          margin-right: 10px;
+          margin-left: toREM(8);
+          
         }
       }
       .parent_top {
         position: absolute;
-        top: -20px;
-        left: -168px;
-        width: 375px;
+        top: toREM(0);
+        left: toREM(0);
+        width: toREM(375);
         z-index: 50;
         color: #fff;
-        margin-top: 20px;
+        margin-top: toREM(20);
         font-size: 12px;
         .top1 {
-          margin-top: 2px;
+          margin-top: toREM(-20);
+          margin-left: toREM(5);
         }
         .top2 {
-          margin-top: -13px;
+          margin-top: toREM(-2);
+          margin-left: toREM(13);
         }
       }
     }
   }
   .sandbeach {
     width: 100%;
-    margin-top: -15px;
+    margin-top: toREM(-15);
     ul{
         width: 100%;
         padding: 0px 5px;
@@ -216,44 +220,46 @@ export default {};
       width: 27%;
       float: left;
       list-style: none;
-      margin-right: 20px;
+      margin-right: toREM(20);
       position: relative;
       .beach_you{
           img{
-            width: 118px;
-            height: 60px;
+            width: toREM(118);
+            height: toREM(60);
           }
       }
       .beach_info {
         position: absolute;
         top: 0;
-        left: 0px;
+        left: 0;
         z-index: 50;
-        width: 118px;
+        width: toREM(118);
         padding: 12px 0px;
         .beach_h1 {
           font-size: 15px;
-          margin-left: 12px;
+          margin-left: toREM(20);
+          text-align: center;
           color: #000;
         }
         .beach_tips {
           font-size: 12px;
-          margin-left: 13px;
+          margin-left: toREM(18);
           color: #555;
+          text-align: center;
         }
       }
       .beach_top {
         position: absolute;
-        top: -20px;
-        left: -168px;
-        width: 375px;
+        top: 0;
+        left: 0;
+        width: toREM(375);
         z-index: 50;
         color: #fff;
-        margin-top: 20px;
+        margin-top: toREM(20);
         font-size: 16px;
         .top1 {
-          margin-top: 2px;
-          margin-right: 15px;
+          margin-top: toREM(-18);
+          margin-left: toREM(8);
         }
       }
     }

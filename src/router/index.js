@@ -80,5 +80,5 @@ export default new Router({
       component: ()=> import('../pages/journey/journey')
     },
   ]
-  
 })
+
