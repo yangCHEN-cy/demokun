@@ -6,6 +6,7 @@
           src="../../assets/images/hotelsearch/back.png"
           class="img left"
           alt=""
+          @click="back()"
         />
       </template>
       <template v-slot:rightimg>
@@ -98,7 +99,7 @@
       <van-button color="#f0b22d" size="mini">闪电确认</van-button>
       <van-button color="#f0b22d" size="mini">到店有房</van-button>
     </div>
-          <ul class="hotellistbox"  v-for="(item,index) in list[0]" :key="index">
+          <ul class="hotellistbox"  v-for="(item,index) in $store.state.list[0]" :key="index">
             <li>
               <div class="imgbox">
                 <img :src="item.img" alt="">
@@ -140,12 +141,17 @@ export default {
       ],
     };
   },
+
   methods: {
     // 全部选项选择完毕后，会触发 finish 事件
     onFinish({ selectedOptions }) {
       this.show = false;
       this.fieldValue = selectedOptions.map((option) => option.text).join("/");
     },
+    // 返回搜索
+    back(){
+      this.$router.push('/hotelsearch')
+    }
   },
     computed: {
     ...mapState(["hotel","list"]),

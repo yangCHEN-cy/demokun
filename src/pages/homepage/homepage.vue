@@ -1,22 +1,32 @@
 <template>
-  <div>
-      <p class="aa">000</p>
+  <div class="box">
+    <homeswiper></homeswiper>
+    <topqiehuan></topqiehuan>
+    <banner></banner>
   </div>
 </template>
 
 <script>
-
+import homeswiper from "../homepage/swiper.vue";
+import topqiehuan from "../homepage/topqiehuan.vue";
+import banner from "./banner.vue";
 export default {
-
-}
+  components: {
+    homeswiper,
+    topqiehuan,
+    banner,
+  },
+};
 </script>
 
-<style lang="scss" scoped>
-@import '../../components/common/import.scss';
-div{
-  font-size: toREM(10);
+<style>
+* {
+  margin: 0;
+  padding: 0;
 }
-.aa{
-  font-size: toREM(30);
+.box {
+  width: 100%;
+  background-color: gainsboro;
+  overflow: hidden;
 }
 </style>
