@@ -7,17 +7,26 @@ export default new Router({
     {
       path: '/',
       name: 'home',//首页
-      component: ()=> import('../pages/homepage/homepage')
+      component: ()=> import('../pages/homepage/homepage'),children:[
+        { path: '/remen',
+         component: ()=> import('../pages/homepage/remen.vue')},
+         { path: '/',
+         component: ()=> import('../pages/homepage/remen.vue')}
+      ]
     },
     {
       path: '/homepage',
       name: 'homepage',//首页
-      component: ()=> import('../pages/homepage/homepage')
+      component: ()=> import('../pages/homepage/homepage'),children:[
+        { path: '/remen', component: ()=> import('../pages/homepage/remen')}
+      ]
     },
     {
       path: '/login',
       name: 'login',//登录
-      component: ()=> import('../pages/login/login')
+      component: ()=> import('../pages/login/login'),meta:{
+        title:"登录"
+      }
     },    {
       path: '/register',
       name: 'register',//注册
@@ -82,3 +91,4 @@ export default new Router({
   ]
   
 })
+
