@@ -104,7 +104,7 @@ export default {
             this.list[0] = beij;
             console.log(this.list[0]);
             this.$router.push({name:'hotellist',parmas:{
-              beij:id
+              beij:beij.id
             }})
             return;
         });
@@ -115,7 +115,7 @@ export default {
             this.list[0] = shangh;
             console.log(this.list[0]);
             this.$router.push({name:'hotellist',parmas:{
-              shangh:id
+              shangh:shangh.id
             }})
             return;
         });
@@ -126,7 +126,7 @@ export default {
             this.list[0] = anhui;
             console.log(this.list[0]);
             this.$router.push({name:'hotellist',parmas:{
-              anhui:id
+              anhui:anhui.id
             }})
             return;
         });

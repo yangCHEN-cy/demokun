@@ -7,6 +7,25 @@ let router = new Router({
     {
       path: '/',
       name: 'home',//首页
+// <<<<<<< HEAD
+      component: ()=> import('../pages/homepage/homepage'),children:[
+        { path: '/remen',
+         component: ()=> import('../pages/homepage/remen.vue')},
+         { path: '/',
+         component: ()=> import('../pages/homepage/remen.vue')},
+         { path: '/ziyou',
+         component: ()=> import('../pages/homepage/ziyou.vue')},
+         { path: '/mingsu',
+         component: ()=> import('../pages/homepage/mingsu.vue')}
+      ]
+    },
+    {
+      path: '/home',
+      name: 'home',//首页
+      component: ()=> import('../pages/homepage/homepage'),children:[
+        { path: '/remen', component: ()=> import('../pages/homepage/remen')}
+      ],
+// =======
       component: () => import('../pages/homepage/homepage'), children: [
         {
           path: '/remen',
@@ -22,6 +41,7 @@ let router = new Router({
       path: '/homepage',
       name: 'homepage',//首页
       component: () => import('../pages/homepage/homepage')
+// >>>>>>> 8e8f5a02b9fcab34294ecbffc777336347c4b8d3
     },
     {
       path: '/login',
@@ -66,7 +86,13 @@ let router = new Router({
     {
       path: '/my',
       name: 'my',//我的页面
-      component: () => import('../pages/my/my')
+      component: () => import('../pages/my/my'),
+      children:[
+        {path:'',component:()=>import("@/pages/my/myyj")},
+        {path:'myyj',component:()=>import("@/pages/my/myyj")},
+        {path:'mysp',component:()=>import("@/pages/my/mysp")},
+        {path:'mywd',component:()=>import("@/pages/my/mywd")},
+      ]
     },
     {
       path: '/journeylist',

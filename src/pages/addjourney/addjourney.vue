@@ -90,7 +90,7 @@ export default {
       next();
     }else{
        console.log("未登录");
-       next({path:'/login'});
+       next({path:'/register'});
     }
   }
 };

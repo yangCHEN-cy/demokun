@@ -3,8 +3,8 @@
     <div class="top">
         <ul>
       <router-link to="remen"><li @click="curr=0" :class="{active:curr==0}">热门推荐</li></router-link>
-      <li @click="curr=1" :class="{active:curr==1}">自由行</li>
-      <li @click="curr=2" :class="{active:curr==2}">名宿</li>
+      <router-link to="ziyou"><li @click="curr=1" :class="{active:curr==1}">自由行</li></router-link>
+    <router-link to="mingsu"><li @click="curr=2" :class="{active:curr==2}">名宿</li></router-link>
     </ul>
     <div class="right">更多</div>
     </div>
@@ -25,7 +25,8 @@ export default {
 <style scoped lang="scss">
 @import "../../components/common/import.scss";
 .banner {
-  padding:toREM(5) 0 ;
+  margin-bottom: toREM(80);
+  padding:toREM(5) 0;
   background-color: white;
   border-radius: toREM(10);
   .top{

@@ -7,7 +7,7 @@
         </div>
         <p>游记</p>
       </li>
-      <li>
+     <router-link to="journey"> <li>
         <div class="icon">
           <img
             src="../../assets/homeimg/home1_slices/xingcheng@2x.png"
@@ -16,12 +16,14 @@
         </div>
         行程
       </li>
-      <li>
+     </router-link>
+    <router-link to="hotelsearch">  <li>
         <div class="icon">
           <img src="../../assets/homeimg/home1_slices/feiji@2x.png" alt="" />
         </div>
         酒店
       </li>
+    </router-link>
       <li>
         <div class="icon">
           <img src="../../assets/homeimg/home1_slices/huodong@2x.png" alt="" />
@@ -77,6 +79,7 @@ export default {};
       margin-top:toREM(15);
       text-align: center;
       list-style: none;
+      color:black;
     }
     li:nth-of-type(1) .icon {
       width:toREM(75);
