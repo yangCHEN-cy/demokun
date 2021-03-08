@@ -8,35 +8,34 @@
  
 </div> -->
       <ul>
-        <li>
+        <li v-for="(item,index) in arr" :key="index">
           <div class="div">
             <div class="mytop">
-              <img src="../../assets/images/my/tx1.png" alt="" />
-              <span class="name">123</span>
-              <span class="left">1312</span>
+              <img :src="require('../../assets/images/my/'+item.touxiangimg)" alt="" />
+              <span class="name">{{item.name}}</span>
+              <span class="left">{{item.time}}</span>
               <button class="btn">关注</button>
             </div>
             <van-swipe @change="onChange">
               <van-swipe-item
-                ><img src="../../assets/images/my/lbu1.png"
-              /></van-swipe-item>
-              <van-swipe-item>2</van-swipe-item>
-              <van-swipe-item>3</van-swipe-item>
-              <van-swipe-item>4</van-swipe-item>
+                > <img :src="require('../../assets/images/my/'+item.img1)" alt="" /></van-swipe-item>
+              <van-swipe-item> <img :src="require('../../assets/images/my/'+item.img2)" alt="" /></van-swipe-item>
+              <van-swipe-item> <img :src="require('../../assets/images/my/'+item.img3)" alt="" /></van-swipe-item>
+              <van-swipe-item> <img :src="require('../../assets/images/my/'+item.img4)" alt="" /></van-swipe-item>
             </van-swipe>
             <div class="cen">
-              <h4>13123</h4>
+              <h4>{{item.title}}</h4>
               <div class="mytil">
-                <span>321112312a</span>
-                <span>s123121233</span>
-                <span>d1231231231231</span>
+                <span>{{item.txt1}}</span>
+                <span>{{item.tx2}}</span>
+                <span>{{item.txt3}}</span>
               </div>
             
             </div >
               <div class="boon">
-                <span><img src="../../assets/images/my/点赞.png" alt=""></span>
-                <span></span>
-                <span></span>
+                <span> <img :src="require('../../assets/images/my/'+item.myimages1)" alt="" /></span>
+                <span> <img :src="require('../../assets/images/my/'+item.myimages2)" alt="" /></span>
+                <span> <img :src="require('../../assets/images/my/'+item.myimages3)" alt="" /></span>
                 </div>
           </div>
         </li>
@@ -50,10 +49,25 @@
 // import "swiper/swiper-bundle.css";
 import { Toast } from "vant";
 export default {
+  data(){
+    return{
+      arr:[],
+    
+    }
+  },
+  mounted(){
+    this.$axios.get("../../static/data/my.json").then((res) => {
+      console.log(res);
+      this.arr = res.data.myyj;
+      console.log(this.arr);
+  }, 
+  )
+  },
   methods: {
     onChange(index) {
       // Toast("当前 Swipe 索引：" + index);
     },
+    
   },
 };
 </script>
@@ -128,10 +142,14 @@ export default {
       }
     }
     .boon{
-      background-color: navy;
+      // background-color: navy;
       width:toREM(200) ;
       height: toREM(50);
-      margin-left:toREM(120) ;
+      margin-left:toREM(200) ;
+      margin-top: toREM(50);
+      img{
+        height: toREM(28);
+      }
        span{
          float: left;
          margin-right:toREM(20) ;
