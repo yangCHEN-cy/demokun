@@ -6,13 +6,6 @@
 <script>
 export default {
   name: 'App',
-<<<<<<< HEAD
-  components:{
-  }
-=======
-
->>>>>>> bb99467458982bc65a70515c1a975bf0ffca2020
-}
 </script>
 
 <style>
