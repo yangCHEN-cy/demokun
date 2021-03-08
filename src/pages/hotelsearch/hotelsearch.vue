@@ -88,7 +88,7 @@ export default {
       this.date = `${this.formatDate(start)} - ${this.formatDate(end)}`;
     },
     back() {
-      this.$router.push("/homepage");
+      this.$router.push("/home");
     },
     //获取json数据
     sendlist() {

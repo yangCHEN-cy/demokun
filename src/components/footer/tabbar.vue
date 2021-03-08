@@ -32,7 +32,7 @@
         <img src="../../assets/homeimg/home1_slices/hot.png" />
       </template>
     </item>
-    <item txt="我的" mark="my" :curr="curritem" @change="getVal">
+    <item txt="我的" mark="myorder" :curr="curritem" @change="getVal">
       <template #normalImg>
         <img src="../../assets/homeimg/home_slices/wode.png" />
       </template>
