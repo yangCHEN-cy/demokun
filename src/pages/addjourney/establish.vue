@@ -13,7 +13,7 @@ export default {
 <style scoped lang='scss'>
 @import "../../components/common/import.scss";
 .butt{
-    width: 100%;
+    width: 100vw;
     height: toREM(40);
     margin-top: toREM(350);
     border-bottom: 1px solid #dadada;

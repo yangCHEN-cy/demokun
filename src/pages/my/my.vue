@@ -58,7 +58,7 @@
       <router-view></router-view>
       </div>
     </div>
-    
+    <myfoot></myfoot>
   </div>
 </template>
 
@@ -69,7 +69,9 @@
 // Vue.use(Vant);
 // Vue.use(Vuex)
 // Vue.use(MintUI)
+import myfoot from '../../components/footer/tabbar'
 export default {
+    components:{myfoot},
 data(){
     return{
       currIndex:0

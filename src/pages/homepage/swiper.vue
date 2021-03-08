@@ -62,6 +62,7 @@ export default {};
 @import '../../components/common/import.scss';
 .swiper {
   width:100%;
+  // margin-top: toREM(50);
   .mint-swipe{
     height:toREM(164);
     position: relative;
