@@ -1,6 +1,14 @@
-<template>
+<template>      
   <div class="box">
-    <headernormal mytitle="行程"></headernormal>
+    <headernormal>
+       <template v-slot:leftimg>
+        <img
+          src="../../assets/images/hotelsearch/back.png"
+          class="imgleft"
+          alt=""
+        />
+      </template>
+    </headernormal>
     <div class="banner">
       <!-- banner图片 -->
       <div class="banner_hua">
@@ -22,7 +30,7 @@
 <script>
 import boring from './boring'
 import guess from './guess'
-import headernormal from '../../components/header/header-normal'
+import headernormal from '../../components/header/header-input'
 export default {
     components:{
         boring,
@@ -35,11 +43,19 @@ export default {
 <style scoped lang='scss'>
 @import '../../components/common/import.scss';
 .box{
+  width: 100vw;
+  overflow: hidden;
   background-color: #e7e7e7;
+}
+.imgleft{
+  position: absolute;
+  top: toREM(16);
+  left: toREM(15);
 }
 .banner{
   position: relative;
   overflow: hidden;
+  margin-top: toREM(50);
   .banner_hua{
     margin-left: toREM(-8);
     img{
@@ -64,7 +80,7 @@ export default {
       line-height: toREM(30);
       margin-top: toREM(10);
       border-radius: toREM(39);
-      padding: 2px 6px;
+      padding: toREM(2) toREM(6);
       margin-left: toREM(135);
       background: #278fbb;
       a{
@@ -78,10 +94,11 @@ export default {
       display: inline-block;
       width: toREM(400);
       margin: 0 auto;
-      font-size: 16px;
+      font-size: toREM(16);
       position: relative;
       } 
     }
   }
 }
+
 </style>

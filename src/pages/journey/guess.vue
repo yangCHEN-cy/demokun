@@ -70,7 +70,7 @@ export default {
       width: 100%;
     }  
     p{
-      font-size: 13px;
+      font-size: toREM(13);
       margin-top: toREM(3);
       text-align: left;
     }

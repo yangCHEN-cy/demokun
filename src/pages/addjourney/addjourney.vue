@@ -99,7 +99,9 @@ export default {
 <style scoped lang='scss'>
 @import "../../components/common/import.scss";
 .box {
-  height: toREM(1300);
+  // height: toREM(1300);
+  width: 100vw;
+  overflow: hidden;
   background-color: #e7e7e7;
   .numb {
     height: toREM(625);
@@ -121,7 +123,7 @@ export default {
     ul {
       height: toREM(128);
       border-bottom: 1px solid #eaeaea;
-      margin: 0px -10px;
+      margin: toREM(0) toREM(-10);
       margin-top: toREM(15);
       // li {
       //   width: 27%;

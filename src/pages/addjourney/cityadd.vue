@@ -58,13 +58,13 @@ li {
     color: #fff;
     margin-top: toREM(20);
     .city_h1 {
-      margin: -12px 105px;
+      margin: toREM(-12) toREM(105);
       img {
         width: toREM(15);
       }
     }
     .city_h2 {
-      padding: 70px 25px;
+      padding: toREM(70) toREM(25);
       text-align: left;
     }
   }
