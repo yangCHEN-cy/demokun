@@ -1,15 +1,18 @@
 <template>
   <div>
     <!-- 头部 -->
+    <mytit mytitle="精选路线"></mytit>
     <item v-for="(item, index) in arr" :key="index" :newarr="arr" :index1="index"></item>
   </div>
 </template>
 
 <script>
+import mytit from '../../components/header/header-normal'
 import item from "./item";
 export default {
   components: {
     item,
+    mytit
   },
   data() {
     return {

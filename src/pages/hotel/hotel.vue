@@ -41,7 +41,7 @@
                   中央空调
               </div>
           </div>
-          <div class="btn">
+          <div class="btn" @click="pushTo()">
               预定酒店
           </div>
       </div>
@@ -50,7 +50,13 @@
 
 <script>
 export default {
-
+methods:{
+    // pushTo(){
+    //     this.$router.push({name='',params:{
+            
+    //     }})
+    // }
+}
 }
 </script>
 

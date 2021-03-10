@@ -3,7 +3,7 @@
     <van-nav-bar
       :title="mytitle"
       left-text=""
-      right-text=""
+      :right-text="righttext"
       left-arrow
       @click-left="onClickLeft"
       @click-right="onClickRight"
@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  props:["mytitle"],
+  props:["mytitle","righttext"],
   data(){
     return{
       
