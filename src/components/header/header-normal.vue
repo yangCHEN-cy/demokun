@@ -21,7 +21,7 @@ export default {
   },
    methods: {
     onClickLeft() {
-      console.log(1);
+      this.$router.go(-1)
       Toast('返回');
     },
     onClickRight() {
