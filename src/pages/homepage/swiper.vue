@@ -77,7 +77,7 @@ export default {};
   }
   .tianqi{
     position: absolute;
-    top: 0;
+    top:toREM(50);
     left: 0;
     ul{
       width:toREM(120);
