@@ -100,7 +100,7 @@
       <van-button color="#f0b22d" size="mini">到店有房</van-button>
     </div>
           <ul class="hotellistbox"  v-for="(item,index) in $store.state.list[0]" :key="index">
-            <li @click="todetil()">
+            <li @click="todetil(item)">
               <div class="imgbox">
                 <img :src="item.img" alt="">
               </div>
@@ -152,7 +152,9 @@ export default {
     back(){
       this.$router.push('/hotelsearch')
     },
-     todetil(){
+     todetil(item){
+       console.log(item);
+       this.$store.state.listdata = item
     this.$router.push('/hotel')
   }
   },
