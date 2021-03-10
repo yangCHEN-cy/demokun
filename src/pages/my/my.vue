@@ -77,6 +77,20 @@ data(){
     return{
       currIndex:0
     }
+  },
+  beforeRouteEnter (to, from, next) {
+    console.log("sdad")
+    // 获取本地存储中是否有用户名或密码 或token
+    let uname =window.sessionStorage.getItem("userName");
+    // let upwd =window.sessionStorage.getItem("mPwd");
+    console.log(uname)
+    if(uname){
+      console.log("已经登录了");
+      next();
+    }else{
+       console.log("未登录");
+       next({path:'/login'});
+    }
   }
 }
 </script>

@@ -5,7 +5,9 @@
               <img src="../../assets/images/my/bjt.png" alt="">
               <div class="div">
                   <h4>131</h4>
-                  
+                  <span>CNY /人</span>
+                  <p>24</p>
+                  <span>234</span>
               </div>
           </li>
       </ul>
@@ -34,6 +36,7 @@ export default {
     .div{
          height:toREM(150);
         background-color:red ;
+        // padding-left: ;
     }
     }
 }
