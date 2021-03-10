@@ -48,7 +48,7 @@ export default {
     }
   }
   ul {
-    margin: 0px -10px;
+    margin: toREM(0) toREM(-10);
     margin-top: toREM(15);
     li {
       width: 27%;
@@ -71,21 +71,21 @@ export default {
         margin-top: toREM(20);
         height: toREM(100);
         .city_h1 {
-          margin: -12px 105px;
+          margin: toREM(-12) toREM(105);
           img {
             width: toREM(15);
           }
         }
         .city_h2 {
-          padding: 85px 25px;
+          padding: toREM(85) toREM(25);
           text-align: left;
           position: absolute;
         }
         .city_h3 {
           position: absolute;
-          padding: 110px 25px;
+          padding: toREM(110) toREM(25);
           text-align: left;
-          font-size: 12px;
+          font-size: toREM(12);
         }
       }
     }

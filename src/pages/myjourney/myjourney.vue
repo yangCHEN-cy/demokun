@@ -2,7 +2,7 @@
 <!-- 我的行程 -->
   <div class="div">
     <div class="head">
-      <img src="../../assets/images/my/back.png" alt="" class="left">
+      <img src="../../assets/images/my/back.png" alt="" class="left" @click="fn()">
       <span class="myspan1">我的收藏</span>
       <span  class="myspan2">全部城市</span>
       <img src="../../assets/images/my/daosan.png" alt="" class="right">
@@ -29,6 +29,11 @@ export default {
     data(){
     return{
       currIndex:0
+    }
+  },
+  methods:{
+    fn(){
+      this.$router.push("/my")
     }
   }
 }

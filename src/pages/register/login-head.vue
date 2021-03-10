@@ -1,6 +1,6 @@
 <template>
   <div>
-    <van-nav-bar title="" left-arrow :border="false">
+    <van-nav-bar title="" left-arrow :border="false" @click-left='back()'>
       <template #right>
         <van-icon name="setting-o" size="23" />
       </template>
@@ -13,7 +13,14 @@
 </template>
 
 <script>
-export default {};
+export default {
+  
+  methods: {
+    back(){
+      this.$router.go(-1)
+    }
+  },
+};
 </script>
 
 <style lang='scss' scoped>

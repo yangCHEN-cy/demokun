@@ -1,5 +1,6 @@
 <template>
   <div class="bg">
+    <myhead mytitle="设置"></myhead>
     <div class="list-box">
       <van-cell value="" is-link>
         <template #title>
@@ -68,8 +69,9 @@
 import { Dialog } from "vant";
 import { Toast } from "vant";
 import { mapMutations } from "vuex";
-
+import myhead from '../../components/header/header-normal'
 export default {
+  components:{myhead},
   data() {
     return {
       checked: true,

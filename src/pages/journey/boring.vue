@@ -150,7 +150,7 @@ export default {
     }
     .more {
       margin-left: toREM(230);
-      font-size: 12px;
+      font-size: toREM(12);
     }
   }
   .parentchild {
@@ -158,7 +158,7 @@ export default {
     margin-top: toREM(-5);
     ul{
         width: 100%;
-        padding: 0px 5px;
+        padding: toREM(0) toREM(5);
     }
     li {
       width: 27%;
@@ -180,11 +180,11 @@ export default {
         margin-top: toREM(60);
         width: toREM(118);
         .parent_h1 {
-          font-size: 14px;
+          font-size: toREM(14);
           margin-left: toREM(10);
         }
         .parent_tips {
-          font-size: 12px;
+          font-size: toREM(12);
           margin-left: toREM(8);
           
         }
@@ -197,7 +197,7 @@ export default {
         z-index: 50;
         color: #fff;
         margin-top: toREM(20);
-        font-size: 12px;
+        font-size: toREM(12);
         .top1 {
           margin-top: toREM(-20);
           margin-left: toREM(5);
@@ -214,7 +214,7 @@ export default {
     margin-top: toREM(-15);
     ul{
         width: 100%;
-        padding: 0px 5px;
+        padding: toREM(0) toREM(5);
     }
     li {
       width: 27%;
@@ -234,15 +234,15 @@ export default {
         left: 0;
         z-index: 50;
         width: toREM(118);
-        padding: 12px 0px;
+        padding: toREM(12) toREM(0);
         .beach_h1 {
-          font-size: 15px;
+          font-size: toREM(15);
           margin-left: toREM(20);
           text-align: center;
           color: #000;
         }
         .beach_tips {
-          font-size: 12px;
+          font-size: toREM(12);
           margin-left: toREM(18);
           color: #555;
           text-align: center;
@@ -256,7 +256,7 @@ export default {
         z-index: 50;
         color: #fff;
         margin-top: toREM(20);
-        font-size: 16px;
+        font-size: toREM(16);
         .top1 {
           margin-top: toREM(-18);
           margin-left: toREM(8);

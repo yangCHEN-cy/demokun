@@ -89,6 +89,7 @@ const store = new Vuex.Store({
             },
         },
         list: [],
+        listdata:[],
         islogin: false,
         valhotellist: "请输入酒店名/关键词",
         valxingadd: "搜索国家/城市，北京/上海",
