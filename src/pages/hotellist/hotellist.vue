@@ -142,7 +142,7 @@ export default {
     fn(index) {
       this.indexs = index;
       // this.list = this.$store.state.list	
-              console.log(this.list[0][0]);
+              console.log(this.list[0]);
 
       if (index == 0) {
         console.log(this.list.title);
@@ -182,10 +182,10 @@ export default {
           }
         }
       }  else if (index == 3 ) {
-         console.log(this.list);
+         console.log("index3",index);
         for (let i = 0; i < this.list.length - 1; i++) {
           for (let j = 0; j < this.list.length - 1 - i; j++) {
-            if (this.list[j].price > this.list.list[j + 1].price) {
+            if (this.list[j].price < this.list[j + 1].price) {
               let temp = this.list[j];
               this.list[j] = this.list[j + 1];
               this.list[j + 1] = temp;
