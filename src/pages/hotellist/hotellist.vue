@@ -18,99 +18,66 @@
       </template>
     </headitem>
     <ul class="navbarbox">
-      <li>
-        <van-field
-          v-model="fieldValue"
-          is-link
-          readonly
-          label="距离近-远"
-          placeholder="请选择所在地区"
-          @click="show = true"
-        />
-        <van-popup v-model="show" round position="bottom">
-          <van-cascader
-            v-model="cascaderValue"
-            title="请选择所在地区"
-            :options="options"
-            @close="show = false"
-            @finish="onFinish"
-          />
-        </van-popup>
-      </li>
-      <li>
-        <van-field
-          v-model="fieldValue"
-          is-link
-          readonly
-          label="星级"
-          placeholder="请选择所在地区"
-          @click="show = true"
-        />
-        <van-popup v-model="show" round position="bottom">
-          <van-cascader
-            v-model="cascaderValue"
-            title="请选择星级"
-            :options="options"
-            @close="show = false"
-            @finish="onFinish"
-          />
-        </van-popup>
-      </li>
-      <li>
-        <van-field
-          v-model="fieldValue"
-          is-link
-          readonly
-          label="价格"
-          placeholder="请选择价格"
-          @click="show = true"
-        />
-        <van-popup v-model="show" round position="bottom">
-          <van-cascader
-            v-model="cascaderValue"
-            title="请选择价格"
-            :options="options"
-            @close="show = false"
-            @finish="onFinish"
-          />
-        </van-popup>
-      </li>
-      <li>
-        <van-field
-          v-model="fieldValue"
-          is-link
-          readonly
-          label="筛选"
-          placeholder="请选择所在地区"
-          @click="show = true"
-        />
-        <van-popup v-model="show" round position="bottom">
-          <van-cascader
-            v-model="cascaderValue"
-            title="请选择所在地区"
-            :options="options"
-            @close="show = false"
-            @finish="onFinish"
-          />
-        </van-popup>
+      <li
+        v-for="(item, index) in arr"
+        @click="fn(index)"
+        :key="index"
+        :class="{ active: indexs == index }"
+      >
+        <!-- <div v-if="!item.img1">
+					{{item.title}}
+				</div>
+				<div v-else>
+					{{item.title}}
+					<span class="shang" v-show="flag[index]"></span>
+					<span class="xia" v-show="!flag[index]"></span>
+				</div> -->
+
+        {{ item.title }}
       </li>
     </ul>
     <div class="hotelgo">
       <van-button color="#f0b22d" size="mini">闪电确认</van-button>
       <van-button color="#f0b22d" size="mini">到店有房</van-button>
     </div>
-          <ul class="hotellistbox"  v-for="(item,index) in $store.state.list[0]" :key="index">
-            <li @click="todetil(item)">
-              <div class="imgbox">
-                <img :src="item.img" alt="">
-              </div>
-              <div class="rightbox">
-                <h4>{{item.hoteltitle}}</h4>
-                <p>¥<span>{{item.price}}</span>起</p>
-                <div>{{item.detail}}</div>
-              </div>
-            </li>
-          </ul>
+    <ul
+      class="hotellistbox"
+      v-for="(item, index) in list"
+      :class="{ active: indexs == index }"
+      :key="index"
+    >
+      <li @click="todetil(item)">
+        <div class="imgbox">
+          <img :src="item.img" alt="" />
+        </div>
+        <div class="rightbox">
+          <h4>{{ item.hoteltitle }}</h4>
+          <p class="wuxing">
+            <img
+              src="../../assets/images/hotellist/yes.png"
+              alt=""
+              v-for="item in item.hongxing"
+              :key="index"
+            />
+            <img
+              src="../../assets/images/hotellist/none.png"
+              alt=""
+              v-for="item in item.huixing"
+              :key="index"
+            />
+          </p>
+          <div class="pinfen">
+           <span class="pinfen1">{{item.pingfeng}}</span>
+           <span>{{item.rangs}}</span>km
+          </div>
+          <p>
+            ¥<span>{{ item.price }}</span
+            >起
+          </p>
+          <div class="adress">{{ item.detail }}</div>
+        </div>
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -123,25 +90,39 @@ export default {
   },
   data() {
     return {
-      show: false,
-      fieldValue: "",
-      cascaderValue: "",
-      // 选项列表，children 代表子选项，支持多级嵌套
-      options: [
+      indexs: 0,
+      arr: [
         {
-          text: "浙江省",
-          value: "330000",
-          children: [{ text: "杭州市", value: "330100" }],
+          title: "评分",
         },
         {
-          text: "江苏省",
-          value: "320000",
-          children: [{ text: "南京市", value: "320100" }],
+          title: "距离",
+        },
+        {
+          title: "星级",
+          img1: "sd",
+          detail: true,
+        },
+        {
+          title: "价格",
+          img1: "sd",
+          detail: true,
         },
       ],
+      list:[],
     };
   },
-
+  computed: {
+    flag() {
+      let ddp = [0, 0];
+      this.arr.forEach((item) => {
+        if (item.img1) {
+          ddp.push(item.detail);
+        }
+      });
+      return ddp;
+    },
+  },
   methods: {
     // 全部选项选择完毕后，会触发 finish 事件
     onFinish({ selectedOptions }) {
@@ -149,19 +130,77 @@ export default {
       this.fieldValue = selectedOptions.map((option) => option.text).join("/");
     },
     // 返回搜索
-    back(){
-      this.$router.push('/hotelsearch')
+    back() {
+      this.$router.push("/hotelsearch");
     },
-     todetil(item){
-       console.log(item);
-       this.$store.state.listdata = item
-    this.$router.push('/hotel')
+    todetil(item) {
+      console.log(item);
+      this.$store.state.listdata = item;
+      this.$router.push("/hotel");
+    },
+    ...mapMutations(["sendlist"]),
+    fn(index) {
+      this.indexs = index;
+      // this.list = this.$store.state.list	
+              console.log(this.list[0][0]);
+
+      if (index == 0) {
+        console.log(this.list.title);
+        for (let i = 0; i < this.list.length - 1; i++) {
+          for (let j = 0; j < this.list.length - 1 - i; j++) {
+            if (this.list[j].pingfeng < this.list[j + 1].pingfeng) {
+            console.log(this.list[j].pingfeng);
+              let temp = this.list[j];
+              this.list[j] = this.list[j + 1];
+              this.list[j + 1] = temp;
+            }
+          }
+        }
+      } else if (index == 1) {
+         console.log(this.list);
+        for (let i = 0; i < this.list.length - 1; i++) {
+          for (let j = 0; j < this.list.length - 1 - i; j++) {
+            if (this.list[j].rangs > this.list[j + 1].rangs) {
+              let temp = this.list[j];
+              this.list[j] = this.list[j + 1];
+              this.list[j + 1] = temp;
+            }
+          }
+        }
+      } else if (index == 2) {
+         console.log(this.list);
+        for (let i = 0; i < this.list.length - 1; i++) {
+          for (let j = 0; j < this.list.length - 1 - i; j++) {
+            if (
+              this.list[j].hongxing.length <
+              this.list[j + 1].hongxing.length
+            ) {
+              let temp = this.list[j];
+              this.list[j] = this.list[j + 1];
+              this.list[j + 1] = temp;
+            }
+          }
+        }
+      }  else if (index == 3 ) {
+         console.log(this.list);
+        for (let i = 0; i < this.list.length - 1; i++) {
+          for (let j = 0; j < this.list.length - 1 - i; j++) {
+            if (this.list[j].price > this.list.list[j + 1].price) {
+              let temp = this.list[j];
+              this.list[j] = this.list[j + 1];
+              this.list[j + 1] = temp;
+            }
+          }
+        }
+      } 
+    },
+  },
+  computed: {
+    ...mapState(["hotel", "list"]),
+  },
+  mounted() {
+    this.list=this.$store.state.list[0]
   }
-  },
-    computed: {
-    ...mapState(["hotel","list"]),
-  },
- 
 };
 </script>
 
@@ -178,14 +217,26 @@ export default {
   top: toREM(20);
   right: toREM(10);
 }
+
 .navbarbox {
   margin-top: toREM(50);
-  height: toREM(50);
+  height: toREM(40);
   li {
     float: left;
     width: 25%;
-    height: toREM(20);
-    border-right: 1p solid #2990b2;
+    text-align: center;
+    height: toREM(40);
+    line-height: toREM(40);
+    background: #b0e2e0;
+    color: rgb(118, 104, 201);
+    font-size: toREM(13);
+    &:last-of-type {
+      border: none;
+    }
+
+    &.active {
+      color: #2646f9;
+    }
     .van-field {
       background: linear-gradient(to right, #d2e3e9);
     }
@@ -198,37 +249,61 @@ export default {
 .hotelgo {
   padding-left: toREM(20);
   height: toREM(35);
+  line-height: toREM(25);
   border-bottom: 1px solid #dedede;
 }
-.hotellistbox{
+.hotellistbox {
   padding: toREM(10);
-  li{
-        height: toREM(120);
+  li {
+    height: toREM(125);
     border-bottom: 1px solid #dedede;
-      .imgbox{
-        width: 30%;
-        height: toREM(140);
-        float: left;
-        margin-right: toREM(5);
-        img{
-          width: 100%;
-          height: toREM(100);
+    .imgbox {
+      width: 35%;
+      height: toREM(140);
+      float: left;
+      margin-right: toREM(5);
+      img {
+        width: 100%;
+        height: toREM(120);
+      }
+    }
+    .rightbox {
+      width: 60%;
+      height: toREM(130);
+      float: left;
+      p {
+        color: red;
+        margin-top: toREM(5);
+        float: right;
+      }
+      .pinfen{
+        .pinfen1{
+          border-radius: 5px;
+          display: inline-block;
+          width: toREM(40);
+          height: toREM(20);
+          line-height: toREM(20);
+          text-align: center;
+          border: 1px solid #b0e2e0;
+          color: #2a91ae;
+          margin-right: toREM(10);
         }
       }
-      .rightbox{
-        width: 60%;
-        height: toREM(130);
+      .wuxing {
         float: left;
-        p{
-          color: red;
-          margin-top: toREM(20);
-          float: right;
-        }
-        div{
-          color:#ccc;
-          margin-top: toREM(60);
+        img {
+          width: toREM(15);
+          margin-right: toREM(1);
         }
       }
+      div {
+        color: #ccc;
+        margin-top: toREM(28);
+      }
+    }
   }
+}
+.adress{
+  font-size: toREM(14);
 }
 </style>
