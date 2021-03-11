@@ -87,9 +87,14 @@ export default {
   // margin-top: 20px;
   height: toREM(500);
   background-color: white;
-
+  li{
+     background-color: white;
+     height: toREM(500);
+      margin-bottom: toREM(50);
+  }
   .div {
-    height: toREM(300);
+    height: toREM(400);
+    margin-bottom: toREM(100);
     .mytop {
       height: toREM(70);
       position: relative;

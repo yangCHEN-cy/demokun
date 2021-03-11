@@ -101,7 +101,8 @@ const store = new Vuex.Store({
         checklogin(state,blo){
             state.islogin = blo
             console.log(state.islogin);
-        }
+        },
+       
     },
     getters: {
 
