@@ -95,6 +95,7 @@ const store = new Vuex.Store({
         valxingadd: "搜索国家/城市，北京/上海",
         valhome: "游记，团购",
         valhomec: "上海 厦门",
+        myhotel:[]
     },
 
     mutations:{

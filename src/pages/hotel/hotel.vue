@@ -73,17 +73,18 @@ export default {
     };
   },
   methods: {
-    // pushTo(){
-    //     this.$router.push({name='',params:{
-    //     }})
-    // }
+    pushTo(){
+        alert('预定成功')
+        this.$store.state.myhotel.push(this.hotel)
+        console.log(this.$store.state.myhotel);
+    },
     back() {
       this.$router.go(-1);
     },
   },
   mounted() {
-    this.hotel = this.$store.state.listdata[0];
-    console.log(this.$store.state.listdata[0]);
+    this.hotel = this.$store.state.listdata;
+    console.log(this.$store.state.listdata);
   },
 };
 </script>
