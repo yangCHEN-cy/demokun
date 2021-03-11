@@ -2,7 +2,7 @@
   <div>
       <ul class="box">
           <li v-for="(item,index) in arr" :key="index">
-              <img :src="require('../../assets/images/my/'+item.img)"  alt="">
+              <img :src="require('../../assets/images/myjourney/'+item.img)"  alt="">
               <div class="div">
                   <h4>{{item.title}}</h4>
                   <span class="span1">CNY{{item.num}}/人</span>
