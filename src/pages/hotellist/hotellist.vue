@@ -154,7 +154,7 @@ export default {
     },
      todetil(item){
        console.log(item);
-       this.$store.state.listdata = item
+       this.$store.state.listdata[0] = item
     this.$router.push('/hotel')
   }
   },
