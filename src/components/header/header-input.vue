@@ -5,7 +5,7 @@
     </template>
     <div class="searchtbox" >
         <i class="icon search" ></i>
-        <input type="text" name="" id="" :value="this.$store.state.valhotellist">
+        <input type="text" name="" id="" :value="this.$store.state.valhome">
     </div>
     <template >
       <slot name="rightimg"></slot>
@@ -16,8 +16,7 @@
 <script>
 
 export default {
-  props: ["txt"],
-
+  props: ["txt",],
 }
 
 </script>

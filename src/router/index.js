@@ -117,8 +117,20 @@ let router = new Router({
     },
     {
       path: '/myjourney',
-      name: 'myjourney', //我的行程
-      component: () => import('../pages/myjourney/myjourney')
+// <<<<<<< HEAD
+      name: 'myjourney',//我的行程
+      component: () => import('../pages/myjourney/myjourney'),
+      children:[
+        {path:'',component:()=>import("@/pages/myjourney/didian")},
+        {path:'didian',component:()=>import("@/pages/myjourney/didian")},
+        {path:'zhuanti',component:()=>import("@/pages/myjourney/zhuanti")},
+        {path:'huodong',component:()=>import("@/pages/myjourney/huodong")},
+        {path:'xianlu',component:()=>import("@/pages/myjourney/xianlu")},
+      ]
+// =======
+      // name: 'myjourney', //我的行程
+      // component: () => import('../pages/myjourney/myjourney')
+// >>>>>>> 3c71aa84078402885af95c0665da64f59e4ccaae
     },
     {
       path: '/myorder',

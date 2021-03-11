@@ -1,5 +1,6 @@
 <template>
   <div class="banner">
+   <myhearder mytitle="我的订单"></myhearder>
     <div class="top">
       <ul>
         <router-link to="nohave"
@@ -39,6 +40,7 @@
 
 <script>
 import mybannerimg from '../myorder/bannerimg'
+import myhearder from '../../components/header/header-normal'
 export default {
   data() {
     return {
@@ -46,7 +48,8 @@ export default {
     };
   },
   components:{
-   mybannerimg
+   mybannerimg,
+   myhearder
   }
   
 };
