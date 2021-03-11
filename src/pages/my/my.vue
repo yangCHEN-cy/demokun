@@ -1,6 +1,9 @@
 <template>
   <div class="box">
       <div class="bjt">
+          <span class="myspan1">足迹遍布0个国家</span>
+          <img src="../../assets/images/my/total.png" alt="" class="img1">
+           <img src="../../assets/images/my/hanbao.png" alt="" class="img2">
           <div class="myser">
                <img src="../../assets/images/my/touxiang.png" alt="">
                <div class="right"><a href="#">编辑资料</a></div>
@@ -76,6 +79,20 @@ data(){
     return{
       currIndex:0
     }
+  },
+  beforeRouteEnter (to, from, next) {
+    console.log("sdad")
+    // 获取本地存储中是否有用户名或密码 或token
+    let uname =window.sessionStorage.getItem("userName");
+    // let upwd =window.sessionStorage.getItem("mPwd");
+    console.log(uname)
+    if(uname){
+      console.log("已经登录了");
+      next();
+    }else{
+       console.log("未登录");
+       next({path:'/login'});
+    }
   }
 }
 </script>
@@ -90,7 +107,7 @@ a{
 .box{
     background-color: #E0E0E0;
     // height: 100rem;
-    height:toREM(1000) ;
+    height:toREM(1500) ;
     .bjt{
     // height: 20rem;
     height:toREM(300);
@@ -98,6 +115,27 @@ a{
     background: url(../../assets/images/my/bjt.png) no-repeat;
     background-size: 100% 100%;
     position: relative;
+    text-align: center;
+    .myspan1{
+        font-size:toREM(10) ;
+        border: 1px solid white;
+        padding: 2px 10px;
+        border-radius: 10px;
+        color: white;
+        position: absolute;
+        left:toREM(130) ;
+        top: toREM(20);
+    }
+   .img1{
+       position: absolute;
+        top: toREM(20);
+        right:toREM(50) ;
+   }
+     .img2{
+       position: absolute;
+        top: toREM(20);
+        right:toREM(20) ;
+   }
     .myser{
         position: absolute;
         // height: 8rem;
