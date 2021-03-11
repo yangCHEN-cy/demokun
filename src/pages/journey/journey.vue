@@ -6,6 +6,7 @@
           src="../../assets/images/hotelsearch/back.png"
           class="imgleft"
           alt=""
+          @click="go()"
         />
       </template>
     </headernormal>
@@ -37,6 +38,11 @@ export default {
         guess,
         headernormal
     },
+methods: {
+  go(){
+    this.$router.push('/')
+  }
+},
 }
 </script>
 
