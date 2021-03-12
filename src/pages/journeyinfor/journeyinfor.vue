@@ -73,9 +73,12 @@ export default {
   // ])
   methods: {
     pushto() {
+      alert('收藏成功')
       console.log(this.obj);
-      // this.$router.push({name="",params:{}})
-    },
+      this.$store.state.myjor.push(this.obj)
+        this.$router.push({name:'my'})
+      // this.$router.push({name="journeylist"})
+    }
   },
 };
 </script>

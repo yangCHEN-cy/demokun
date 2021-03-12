@@ -17,8 +17,8 @@ const store = new Vuex.Store({
                     suitperson:'以游玩观赏为主',
                     tours:'客流量大',
                     imgs:[
-                        '',
-                        ''
+                        'img1.png',
+                        'img2.png'
                     ],
                     
                 },
@@ -95,7 +95,8 @@ const store = new Vuex.Store({
         valxingadd: "搜索国家/城市，北京/上海",
         valhome: "游记，团购",
         valhomec: "上海 厦门",
-        myhotel:[]
+        myhotel:[],
+        myjor:[]
     },
 
     mutations:{
