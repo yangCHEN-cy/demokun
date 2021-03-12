@@ -1,3 +1,4 @@
+// <<<<<<< HEAD
 <template>
   <div class="box">
     <headernormal mytitle="添加行程"></headernormal>
@@ -159,4 +160,7 @@ export default {
     }
   }
 }
+// =======
+
+// >>>>>>> a83de02d4d6edf054593c8ab2534aa83cfd7a6ad
 </style>
