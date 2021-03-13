@@ -3,7 +3,7 @@
    <myhearder mytitle="我的订单"></myhearder>
     <div class="top">
       <ul>
-        <router-link to="nohave"
+        <router-link to="/content"
           ><li @click="curr = 0" :class="{ active: curr == 0 }">
             全部
           </li></router-link

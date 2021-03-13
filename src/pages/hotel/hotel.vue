@@ -73,10 +73,31 @@ export default {
     };
   },
   methods: {
-    pushTo(){
-        alert('预定成功')
-        this.$store.state.myhotel.push(this.hotel)
-        console.log(this.$store.state.myhotel);
+    getProjectNum() {
+      const projectTime = new Date(); // 当前中国标准时间
+      const Year = projectTime.getFullYear(); // 获取当前年份 支持IE和火狐浏览器.
+      const Month = projectTime.getMonth() + 1; // 获取中国区月份
+      const Day = projectTime.getDate(); // 获取几号
+      var CurrentDate = Year;
+      if (Month >= 10) {
+        // 判断月份和几号是否大于10或者小于10
+        CurrentDate += Month;
+      } else {
+        CurrentDate += "0" + Month;
+      }
+      if (Day >= 10) {
+        CurrentDate += Day;
+      } else {
+        CurrentDate += "0" + Day;
+      }
+      return CurrentDate;
+    },
+    pushTo() {
+      alert("预定成功");
+      let number = this.getProjectNum() + Math.floor(Math.random() * 10000);
+      let hot = this.hotel;
+      this.$store.state.myhotel.push({ ...hot, num: number });
+      console.log(this.$store.state.myhotel);
     },
     back() {
       this.$router.go(-1);
