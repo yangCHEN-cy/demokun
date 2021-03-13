@@ -77,7 +77,7 @@ export default {
   },
   methods:{
     fn(){
-        this.$router.push({name:'journeyinfor',params:{aaa:'111'}})
+        this.$router.push({name:'journeyinfor',params:{aaa:this.mycity_h2}})
     }
   },
   beforeRouteEnter (to, from, next) {

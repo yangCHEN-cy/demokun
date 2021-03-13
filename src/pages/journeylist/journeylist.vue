@@ -22,6 +22,7 @@ export default {
     };
   },
   mounted() {
+    console.log(this.$route);
     this.arr = [];
     for (var i in this.$store.state.tour.address) {
       if (this.$store.state.tour.address[i].place == this.currplace) {
