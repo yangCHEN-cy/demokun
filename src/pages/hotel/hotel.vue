@@ -74,9 +74,11 @@ export default {
   },
   methods: {
     pushTo(){
-        alert('预定成功')
+        alert('预定成功')//组件
         this.$store.state.myhotel.push(this.hotel)
         console.log(this.$store.state.myhotel);
+        this.$router.push({name:'hotellist'})
+        
     },
     back() {
       this.$router.go(-1);
