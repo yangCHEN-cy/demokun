@@ -7,7 +7,7 @@
           <div class="myser">
                <img src="../../assets/images/my/touxiang.png" alt="">
                <div class="right"><a href="#">编辑资料</a></div>
-               <p class="p1">user.name<span></span></p>
+               <p class="p1">{{username}}<span></span></p>
                <p class="p2">介绍自己更容易获得关注哦</p>
                <ul>
                    <li>
@@ -77,11 +77,15 @@ export default {
     components:{myfoot},
 data(){
     return{
-      currIndex:0
+      currIndex:0,
+      username:''
     }
   },
+   mounted(){
+      this.username=sessionStorage.getItem("userName")
+  },
   beforeRouteEnter (to, from, next) {
-    console.log("sdad")
+//     console.log("sdad")
     // 获取本地存储中是否有用户名或密码 或token
     let uname =window.sessionStorage.getItem("userName");
     // let upwd =window.sessionStorage.getItem("mPwd");
@@ -93,7 +97,8 @@ data(){
        console.log("未登录");
        next({path:'/login'});
     }
-  }
+  },
+  
 }
 </script>
 
