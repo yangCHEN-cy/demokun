@@ -1,13 +1,14 @@
 
 import Vue from 'vue'
 import Vuex from 'vuex'
+// import '@/assets/images/myjourney/img1.jpg'
 Vue.use(Vuex)
 const store = new Vuex.Store({
     state: {
         tour:{
             address:[
                 {
-                    name:'中国历史文化名城：黄山',
+                    name:'中国文化名城：黄山',
                     id:'安徽0',
                     date:'三天两晚',
                     place:'安徽',
@@ -18,12 +19,13 @@ const store = new Vuex.Store({
                     tours:'客流量大',
                     imgs:[
                         'img1.png',
-                        'img2.png'
+                        'img2.png',
+                        'img3.png'
                     ],
                     
                 },
                 {
-                    name:'中国历史文化名城：黄山',
+                    name:'中国历史名城：绿山',
                     id:'安徽1',
                     date:'三天两晚',
                     place:'安徽',
@@ -33,13 +35,14 @@ const store = new Vuex.Store({
                     suitperson:'以游玩观赏为主',
                     tours:'客流量大',
                     imgs:[
-                        '',
-                        ''
+                        'img4.png',
+                        'img5.png',
+                        'img6.png'
                     ],
                     
                 },
                 {
-                    name:'中国历史文化名城：黄山',
+                    name:'中国历史文化名城：金山',
                     date:'三天两晚',
                     id:'安徽2',
                     place:'安徽',
@@ -49,8 +52,9 @@ const store = new Vuex.Store({
                     suitperson:'以游玩观赏为主',
                     tours:'客流量大',
                     imgs:[
-                        '',
-                        ''
+                        'img7.png',
+                        'img8.png',
+                        'img9.png'
                     ],
                     
                 },
@@ -65,8 +69,9 @@ const store = new Vuex.Store({
                     suitperson:'以游玩观赏为主',
                     tours:'客流量大',
                     imgs:[
-                        '',
-                        ''
+                        'img10.png',
+                        'img11.png',
+                        'img12.png'
                     ],
                     
                 }

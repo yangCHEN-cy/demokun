@@ -13,11 +13,11 @@
             {{ newarr[index1].playplace }}
           </div>
           <div class="img">
-              <img src="../../assets/images/journey/beijing.png" alt="">
-              <img src="../../assets/images/journey/beijing.png" alt="">
-              <img src="../../assets/images/journey/beijing.png" alt="">
+              <img :src="require('../../assets/images/myjourney/'+newarr[index1].imgs[0])" alt="">
+              <img :src="require('../../assets/images/myjourney/'+newarr[index1].imgs[1])" alt="">
+              <img :src="require('../../assets/images/myjourney/'+newarr[index1].imgs[2])" alt="">
               <div class="dz">
-                  00
+                  
               </div>
           </div>
         </div>
@@ -85,7 +85,7 @@ export default {
          justify-content: space-between;
         img{
             width: toREM(75);
-           
+            height: toREM(50);
         }
         .dz{
             width: 30%;
