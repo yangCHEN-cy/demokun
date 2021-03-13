@@ -88,6 +88,11 @@ export default {
     this.islogin = this.$store.state.islogin;
     console.log(this.$store.state.islogin);
   },
+  methods:{
+    fn(){
+        this.$router.push({name:'journeyinfor',params:{aaa:this.mycity_h2}})
+    }
+  }
 };
 </script>
 

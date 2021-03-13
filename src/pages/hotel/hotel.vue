@@ -20,7 +20,17 @@
           <span>{{ hotel.hoteltitle }}</span
           ><span class="price">{{ hotel.price }}.00</span>
         </div>
-        <div class="star">⭐⭐⭐⭐⭐</div>
+        <div class="star">
+          <van-rate
+            v-model="value"
+            icon="like"
+            void-icon="like-o"
+            color="#ffd21e"
+            :size="25"
+            void-color="#eee"
+            readonly 
+          />
+        </div>
         <div class="infor">
           {{ hotel.detail }}
         </div>
@@ -66,17 +76,27 @@
 </template>
 
 <script>
+import { Dialog } from "vant";
+import { Rate } from "vant";
 export default {
+  components: {
+    [Dialog.Component.name]: Dialog.Component,
+  },
   data() {
     return {
       hotel: [],
+      value: 4,
     };
   },
   methods: {
-    pushTo(){
-        alert('预定成功')
-        this.$store.state.myhotel.push(this.hotel)
-        console.log(this.$store.state.myhotel);
+    pushTo() {
+      Dialog.alert({
+        title: "标题",
+        message: "弹窗内容",
+      }).then(() => {
+        this.$store.state.myhotel.push(this.hotel);
+        this.$router.push({ name: "my" });
+      });
     },
     back() {
       this.$router.go(-1);
@@ -84,7 +104,8 @@ export default {
   },
   mounted() {
     this.hotel = this.$store.state.listdata;
-    console.log(this.$store.state.listdata);
+    this.value=5-this.hotel.huixing.length
+
   },
 };
 </script>
