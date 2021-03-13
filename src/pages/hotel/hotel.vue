@@ -185,7 +185,7 @@ export default {
 .van-nav-bar {
   background: none;
   border-bottom: none;
-  /deep/ .van-icon {
+   .van-icon {
     color: #fff;
     font-size: toREM(26);
   }
@@ -193,3 +193,4 @@ export default {
  .van-nav-bar__left {
   padding: 0 toREM(5);
 }
+</style>
