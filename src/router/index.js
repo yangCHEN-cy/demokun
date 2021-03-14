@@ -138,11 +138,11 @@ let router = new Router({
       component: () => import('../pages/myorder/myorder'),
       children: [{
           path: "",
-          component: () => import("../pages/myorder/nohave")
+          component: () => import("../pages/myorder/content")
         },
         {
-          path: "/nohave",
-          component: () => import("../pages/myorder/nohave")
+          path: "/content",
+          component: () => import("../pages/myorder/content")
         }
       ]
     },
