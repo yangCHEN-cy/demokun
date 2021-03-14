@@ -90,8 +90,8 @@ export default {
   methods: {
     pushto() {
       Dialog.alert({
-        title: "标题",
-        message: "弹窗内容",
+        title: "收藏成功",
+        message: "可以前往我的行程中查看",
       }).then(() => {
         this.$store.state.myjor.push(this.obj);
         this.$router.push({ name: "my" });

@@ -91,8 +91,8 @@ export default {
   methods: {
     pushTo() {
       Dialog.alert({
-        title: "标题",
-        message: "弹窗内容",
+        title: "预定成功",
+        message: "可以前往我的页面中查看",
       }).then(() => {
         this.$store.state.myhotel.push(this.hotel);
         this.$router.push({ name: "my" });
