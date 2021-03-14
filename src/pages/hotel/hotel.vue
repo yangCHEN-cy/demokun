@@ -96,6 +96,7 @@ export default {
       }).then(() => {
         this.$store.state.myhotel.push(this.hotel);
         this.$router.push({ name: "my" });
+        console.log("11");
       });
     },
     back() {
